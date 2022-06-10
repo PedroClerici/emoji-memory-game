@@ -8,3 +8,12 @@
     background: transparent;
     box-sizing: border-box;
 }
+
+/* Color Variables. */
+:root {
+    --clr-background: #f5f6f7;
+    --clr-gray: #c6c6c6;
+    --clr-red: #fd8899;
+    --clr-green: #7be38f;
+    --clr-blue: #61b2e4;
+}
