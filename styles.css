@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 /* CSS Reset. */
 * {
     margin: 0;
@@ -7,13 +9,33 @@
     vertical-align: baseline;
     background: transparent;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Color Variables. */
 :root {
     --clr-background: #f5f6f7;
-    --clr-gray: #c6c6c6;
     --clr-red: #fd8899;
     --clr-green: #7be38f;
     --clr-blue: #61b2e4;
+}
+
+body {
+    background-color: var(--clr-background);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    position: absolute;
+    height: 300%;
+    width: 300%;
+    background-repeat: repeat;
+    background-image: url(svgs/emoji-background.svg);
+    background-size: 40rem;
+    transform: rotate(20deg);
+    z-index: -1;
 }
