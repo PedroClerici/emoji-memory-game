@@ -18,7 +18,7 @@
   --clr-gray: #c6c6c6;
   --clr-red: #fd8899;
   --clr-green: #7be38f;
-  --clr-blue: #61b2e4;
+  --clr-blue: #58c5f9;
 }
 
 body {
@@ -35,8 +35,37 @@ body {
   height: 300%;
   width: 300%;
   background-repeat: repeat;
-  background-image: url(svgs/emoji-background.svg);
+  background-image: url(img/emoji-background.svg);
   background-size: 40rem;
   transform: rotate(20deg);
   z-index: -1;
+}
+
+.container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+}
+
+.title__text {
+  color: transparent;
+  font-size: 3rem;
+  -webkit-text-stroke: black .05rem;
+  text-shadow: var(--clr-blue) .2rem .1rem;
+}
+
+.title__image {
+ width: 5rem;
+ margin-left: 1rem;
+ position: relative;
+}
+
+footer {
+  display: flex;
 }
