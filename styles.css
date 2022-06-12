@@ -51,6 +51,7 @@ body {
 
 .title {
   display: flex;
+  margin-bottom: 2rem;
 }
 
 .title__text {
@@ -64,6 +65,22 @@ body {
  width: 5rem;
  margin-left: 1rem;
  position: relative;
+}
+
+.deck {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.deck__card {
+  list-style: none;
+  background-color: white;
+  border: black solid .15rem;
+  border-radius: 2rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 footer {
