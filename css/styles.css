@@ -36,7 +36,7 @@ body {
   height: 300%;
   width: 300%;
   background-repeat: repeat;
-  background-image: url(https://pedroclerici.github.io/emoji_memory_game/img/emoji-background.svg);
+  background-image: url(../img/emoji-background.svg);
   background-size: 40rem;
   transform: rotate(20deg);
   z-index: -1;
