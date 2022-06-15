@@ -9,4 +9,12 @@ export default class Card {
 
     this.node.classList.add('deck__card')
   }
+
+  static checkMatch(cardOne, cardTwo) {
+    if (cardTwo.emoji === cardOne.emoji && cardOne.node !== cardTwo.node) {
+      return true;
+    }
+    
+    return false;
+  }
 }
