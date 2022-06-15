@@ -27,10 +27,16 @@ cards.forEach(card => {
     // TODO: add card flip system
     if(!cardFlipOne) {
       cardFlipOne = card;
-        console.log('Flip!')
+
+      if (!cardFlipOne.isMatched) {
+        console.log('Flip!');
+      } else {
+        cardFlipOne = null;
+      }
     } else {
       cardFlipTwo = card;
-      if (cardFlipOne.node !== cardFlipTwo.node) {
+
+      if (!cardFlipTwo.isMatched & cardFlipOne.node !== cardFlipTwo.node) {
         console.log('Flip!');
       } else {
         cardFlipTwo = null;
@@ -38,23 +44,35 @@ cards.forEach(card => {
     }
 
     // Card matching logic.
-    if(cardFlipOne !== null && cardFlipTwo !== null) {
+    if(cardFlipOne !== null && cardFlipTwo !== null && !cardFlipOne.isMatched && !cardFlipTwo.isMatched) {
       if(Card.checkMatch(cardFlipOne, cardFlipTwo)) {
+        // If cards match...
         console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
+
+        cardFlipOne.isMatched = true
+        cardFlipTwo.isMatched = true
+
+        cardFlipOne.node.style.background = '#7be38f'
+        cardFlipTwo.node.style.background = '#7be38f'
+
         cardFlipOne = null;
         cardFlipTwo = null;
+
         matches++;
-
         console.log(`Cards match! Total matches: ${matches}`);
-      } else if (!Card.checkMatch(cardFlipOne, cardFlipTwo)){
+      } else {
+        // If cards don't match
         console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
         cardFlipOne = null;
         cardFlipTwo = null;
 
-        console.log("Cards don't match.")
+        console.log("Cards don't match.");
       }
 
       moves++;
+      if (matches === baseEmojis.length) {
+        alert('YOU WIN!');
+      }
     }
   })
 })

@@ -2,6 +2,7 @@ export default class Card {
   constructor(emoji) {
     this.node = document.createElement('li')
     this.emoji = emoji;
+    this.isMatched = false;
 
     let img = document.createElement('img')
     img.setAttribute('src', `img/emojis/${this.emoji}.svg`)
