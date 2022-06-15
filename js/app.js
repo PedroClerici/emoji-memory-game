@@ -24,12 +24,12 @@ cards.forEach(card => {
 
   // Adding event listeners to all cards
   card.node.addEventListener('click', e => {
-    // TODO: add card flip system
     if(!cardFlipOne) {
       cardFlipOne = card;
 
       if (!cardFlipOne.isMatched) {
         console.log('Flip!');
+        cardFlipOne.flip();
       } else {
         cardFlipOne = null;
       }
@@ -38,6 +38,7 @@ cards.forEach(card => {
 
       if (!cardFlipTwo.isMatched & cardFlipOne.node !== cardFlipTwo.node) {
         console.log('Flip!');
+        cardFlipTwo.flip();
       } else {
         cardFlipTwo = null;
       }
@@ -49,11 +50,8 @@ cards.forEach(card => {
         // If cards match...
         console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
 
-        cardFlipOne.isMatched = true
-        cardFlipTwo.isMatched = true
-
-        cardFlipOne.node.style.background = '#7be38f'
-        cardFlipTwo.node.style.background = '#7be38f'
+        cardFlipOne.match();
+        cardFlipTwo.match();
 
         cardFlipOne = null;
         cardFlipTwo = null;
@@ -63,10 +61,13 @@ cards.forEach(card => {
       } else {
         // If cards don't match
         console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
+        console.log("Cards don't match.");
+
+        cardFlipOne.unFlip();
+        cardFlipTwo.unFlip();
+
         cardFlipOne = null;
         cardFlipTwo = null;
-
-        console.log("Cards don't match.");
       }
 
       moves++;
