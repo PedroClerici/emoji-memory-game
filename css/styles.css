@@ -114,7 +114,7 @@ body {
   width: 9.5rem;
   height: 9.5rem;
   transform-style: preserve-3d;
-  transition: transform .75s ease-in-out;
+  transition: transform .6s ease-in-out;
 }
 
 .deck__card img {

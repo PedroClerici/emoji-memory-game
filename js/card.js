@@ -18,7 +18,7 @@ export default class Card {
   unFlip() {
     setTimeout(() => {
       this.node.classList.remove('deck__card--flipInY');
-    }, 1000);
+    }, 750);
   }
 
   match() {
@@ -26,7 +26,7 @@ export default class Card {
 
     setTimeout(() => {
       this.node.style.background = 'var(--clr-green)'
-    }, 1000);
+    }, 750);
   }
 
   static checkMatch(cardOne, cardTwo) {
