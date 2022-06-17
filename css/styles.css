@@ -81,16 +81,30 @@ body {
   width: 3rem;
 }
 
-.score__timer {
+.score__moves {
   font-size: 1.25rem;
-  font-weight: bold;
+  text-align: center;
+  /* font-weight: bold; */
+  color: black;
+  background: white;
+  padding: .4rem 0;
+  border: black solid var(--border-size);
+  border-radius: 1rem;
+  margin-left: 2rem;
+  width: 9.5rem;
+  white-space: nowrap;
+}
+
+.score__moves::after {
+  content: ' Moves';
 }
 
 .score__restart {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: white;
   background: black;
-  padding: .4rem 2.15rem;
+  width: 9.35rem;
+  padding: .5rem 0;
   border-radius: 1rem;
   margin-right: .1rem;
   margin-left: auto;
