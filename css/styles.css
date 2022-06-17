@@ -59,7 +59,7 @@ body {
 .title__text {
   color: transparent;
   font-size: 3rem;
-  -webkit-text-stroke: black .075rem;
+  -webkit-text-stroke: black .08rem;
   text-shadow: var(--clr-blue) .2rem .1rem;
 }
 
