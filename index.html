@@ -30,7 +30,7 @@
         <img class="score__star__image" src="img/stars/star.svg" alt="empty star">
       </div>
       <span class="score__moves">0</span>
-      <button class="score__restart">Restart</button>
+      <button class="score__restart" onclick="location.reload()">Restart</button>
     </div>
 
     <ul class="deck">
@@ -53,6 +53,26 @@
       </a>
     </footer>
 
+  </div>
+
+  <div class="hide">
+    <div class="popup">
+      <div class="popup__title"></div>
+
+      <div class="popup__stars">
+        <div class="popup__star">
+          <img class="star__image" src="img/stars/star.svg" alt="star">
+        </div>
+        <div class="popup__star">
+          <img class="star__image" src="img/stars/star.svg" alt="star">
+        </div> 
+        <div class="popup__star">
+          <img class="star__image" src="img/stars/star.svg" alt="star">
+        </div>
+      </div>
+
+      <button class="popup__restart score__restart" onclick="location.reload()">Restart</button>
+    </div>
   </div>
 
 </body>

@@ -11,7 +11,6 @@ let cards = [];
 let baseEmojis = ['cherries', 'coconut', 'feather', 'ice', 'rabbit', 'star-struck', 'toothbrush', 'wood'];
 let emojis = baseEmojis.concat(baseEmojis);
 
-
 // Randomizes the emojis array order.
 emojis.sort(() => Math.random() - 0.5);
 
@@ -24,13 +23,13 @@ cards.forEach(card => {
   // Appends the cards to the deck.
   deck.appendChild(card.node);
 
-  // Adding event listeners to all cards
+  // Adding event listeners to all cards.
   card.node.addEventListener('click', e => {
-    if(!cardFlipOne) {
+    // Card flip logic.
+    if (!cardFlipOne) {
       cardFlipOne = card;
 
       if (!cardFlipOne.isMatched) {
-        console.log('Flip!');
         cardFlipOne.flip();
       } else {
         cardFlipOne = null;
@@ -39,7 +38,6 @@ cards.forEach(card => {
       cardFlipTwo = card;
 
       if (!cardFlipTwo.isMatched & cardFlipOne.node !== cardFlipTwo.node) {
-        console.log('Flip!');
         cardFlipTwo.flip();
       } else {
         cardFlipTwo = null;
@@ -47,11 +45,9 @@ cards.forEach(card => {
     }
 
     // Card matching logic.
-    if(cardFlipOne !== null && cardFlipTwo !== null && !cardFlipOne.isMatched && !cardFlipTwo.isMatched) {
-      if(Card.checkMatch(cardFlipOne, cardFlipTwo)) {
+    if (cardFlipOne !== null && cardFlipTwo !== null && !cardFlipOne.isMatched && !cardFlipTwo.isMatched) {
+      if (Card.checkMatch(cardFlipOne, cardFlipTwo)) {
         // If cards match...
-        console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
-
         cardFlipOne.match();
         cardFlipTwo.match();
 
@@ -59,12 +55,8 @@ cards.forEach(card => {
         cardFlipTwo = null;
 
         matches++;
-        console.log(`Cards match! Total matches: ${matches}`);
       } else {
-        // If cards don't match
-        console.log(`cardFlipOne: ${cardFlipOne.emoji}\ncardFlipTwo: ${cardFlipTwo.emoji}`);
-        console.log("Cards don't match.");
-
+        // If cards don't match...
         cardFlipOne.unFlip();
         cardFlipTwo.unFlip();
 
@@ -78,19 +70,45 @@ cards.forEach(card => {
     }
 
     if (matches === baseEmojis.length) {
-      alert('YOU WIN!');
+      // Unhide popup.
+      document.querySelector('.hide').style.display = 'flex';
+
+      // Add popup title accordingly to quantity of stars.
+      const popupTitle = document.querySelector('.popup__title');
+      switch (stars) {
+        case 1:
+          popupTitle.innerHTML = `
+            <h1 class="title__text">Too Much Moves...</h1>
+          `;
+          break;
+        case 2:
+          popupTitle.innerHTML = `
+            <h1 class="title__text">Well Done!</h1>
+            <img class="title__image" src="img/emojis/ok-hand.svg" alt="ok-hand">
+          `;
+          break;
+        case 3:
+          popupTitle.innerHTML = `
+            <h1 class="title__text">Perfect!</h1>
+            <img class="title__image" src="img/emojis/star-struck.svg" alt="star-struck">
+          `;
+          break;
+      }
     }
   })
 })
 
 function updateStars() {
-  const starsNodes = document.querySelectorAll('.score__star > img');
+  const scoreStarsNodes = document.querySelectorAll('.score__star > img');
+  const popupStarsNodes = document.querySelectorAll('.popup__star > img');
 
   if (moves >= 16 && moves < 26) {
-    starsNodes[2].setAttribute('src', 'img/stars/black-star.svg');
+    scoreStarsNodes[2].setAttribute('src', 'img/stars/black-star.svg');
+    popupStarsNodes[2].setAttribute('src', 'img/stars/black-star.svg');
     stars = 2;
   } else if (moves >= 26) {
-    starsNodes[1].setAttribute('src', 'img/stars/black-star.svg');
+    scoreStarsNodes[1].setAttribute('src', 'img/stars/black-star.svg');
+    popupStarsNodes[1].setAttribute('src', 'img/stars/black-star.svg');
     stars = 1;
   }
 }
