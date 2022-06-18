@@ -23,13 +23,14 @@
 }
 
 html, body {
-  position: relative;
+  position: fixed;
   overflow: hidden;
 }
 
 body {
   background-color: var(--clr-background);
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
