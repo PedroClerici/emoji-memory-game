@@ -237,4 +237,22 @@ footer {
   * {
       font-size: 8px;
   }
+
+  footer {
+    position: relative;
+    transform: translateY(-6.5rem);
+    align-items: center;
+  }
+
+  .footer__description {
+    font-size: 1rem;
+    margin: 0;
+    margin-right: auto;
+    margin-left: .4rem;
+  }
+
+  .footer__links {
+    width: 4.5rem;
+    margin-bottom: 0;
+  }
 }
