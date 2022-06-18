@@ -2,7 +2,7 @@
 
 /* CSS Reset. */
 * {
-  font-size: 16px;
+  font-size: 1.65vh;
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,6 +22,7 @@
   --border-size: .15rem;
 }
 
+/* Lock Scrolling for Mobiles */
 html, body {
   position: fixed;
   overflow: hidden;
@@ -29,7 +30,6 @@ html, body {
 
 body {
   background-color: var(--clr-background);
-  min-height: 100vh;
   min-width: 100vw;
   display: flex;
   justify-content: center;
@@ -49,7 +49,7 @@ body {
 
 .container {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,7 +120,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 1.5rem;
-  margin-bottom: 8rem;
+  margin-bottom: 6.5rem;
   transition: transform .5s;
 }
 
@@ -221,25 +221,20 @@ footer {
 }
 
 /* Media Queries */
-@media screen and (max-device-width: 720px){
-  * {
-      font-size: 12px;
-  }
-}
-
-@media screen and (max-device-width: 640px){
+@media screen and (max-device-width: 640px) {
   * {
       font-size: 10px;
   }
 }
 
-@media screen and (max-device-width: 420px){
+@media screen and (max-device-width: 420px) {
   * {
       font-size: 8px;
   }
 
   footer {
     position: relative;
+    margin-top: 1.5rem;
     transform: translateY(-6.5rem);
     align-items: center;
   }
