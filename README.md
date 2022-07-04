@@ -17,7 +17,7 @@ The purpose of this project is to demonstrate my knowledge of html, CSS and Java
 * Restart button.
 
 ## Getting Started
-You can play it [here](https://pedroclerici.github.io/emoji_memory_game/).
+You can play it [here](https://pedroclerici.github.io/emoji-memory-game/).
 or you can clone it to your machine and open `index.html`
 
 ```bash
